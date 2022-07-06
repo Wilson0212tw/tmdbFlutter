@@ -1,21 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'moviePopular.dart';
+part of 'popularResultM.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MoviePopular _$MoviePopularFromJson(Map<String, dynamic> json) => MoviePopular(
+PopularResultM _$PopularResultMFromJson(Map<String, dynamic> json) =>
+    PopularResultM(
       page: json['page'] as int?,
       results: (json['results'] as List<dynamic>)
-          .map((e) => MovieItem.fromJson(e as Map<String, dynamic>))
+          .map((e) => Movie.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalPages: json['total_pages'] as int?,
       totalResults: json['total_results'] as int?,
     );
 
-Map<String, dynamic> _$MoviePopularToJson(MoviePopular instance) =>
+Map<String, dynamic> _$PopularResultMToJson(PopularResultM instance) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results,

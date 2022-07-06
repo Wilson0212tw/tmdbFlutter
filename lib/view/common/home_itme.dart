@@ -3,10 +3,10 @@ import 'package:gi_tg/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:gi_tg/network/model/movieItem.dart';
+import 'package:gi_tg/network/model/index.dart';
 
 class HomeItem extends StatelessWidget {
-  final MovieItem? movie;
+  final ArtWork? movie;
 
   const HomeItem({required this.movie, super.key});
 

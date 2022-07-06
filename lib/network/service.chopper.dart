@@ -17,10 +17,26 @@ class _$Service extends Service {
   final definitionType = Service;
 
   @override
-  Future<Response<MoviePopular>> getPopularMovies([int page = 1]) {
+  Future<Response<PopularResultM>> getMoviePopulars([int page = 1]) {
     final $url = 'movie/popular';
     final $params = <String, dynamic>{'page': page};
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
-    return client.send<MoviePopular, MoviePopular>($request);
+    return client.send<PopularResultM, PopularResultM>($request);
+  }
+
+  @override
+  Future<Response<PopularResultT>> getTVShowPopulars([int page = 1]) {
+    final $url = 'tv/popular';
+    final $params = <String, dynamic>{'page': page};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<PopularResultT, PopularResultT>($request);
+  }
+
+  @override
+  Future<Response<PopularResultM>> getMovieLatest([int page = 1]) {
+    final $url = 'movie/now_playing';
+    final $params = <String, dynamic>{'page': page};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<PopularResultM, PopularResultM>($request);
   }
 }

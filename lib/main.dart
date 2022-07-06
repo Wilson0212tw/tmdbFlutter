@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
+import 'package:gi_tg/localStorage/sharePreference.dart';
 import 'package:gi_tg/network/service.dart';
-import 'package:gi_tg/view/movie/movie_popular.dart';
+import 'package:gi_tg/view/home/home.dart';
+import 'package:gi_tg/view/movie/popular.dart';
 import 'package:logging/logging.dart';
 
 void main() async {
@@ -21,7 +23,6 @@ void _setupLogging() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,50 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  late Service server;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  void initState() {
-    server = Service.create();
-
-    server.getPopularMovies().then((value) => print(value));
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const HomeMovie(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      home: const MyHomePage(title: 'TMDB Demo'),
     );
   }
 }

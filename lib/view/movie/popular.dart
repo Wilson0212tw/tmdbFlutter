@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:gi_tg/network/model/movieItem.dart';
+import 'package:gi_tg/network/model/index.dart';
 import 'package:gi_tg/network/service.dart';
-import 'package:gi_tg/view/Common/home_itme.dart';
+
 import 'package:gi_tg/view/common/poster_itme.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:rxdart/subjects.dart';
 
-class HomeMovie extends StatefulWidget {
-  const HomeMovie({super.key});
+class Popular extends StatefulWidget {
+  final bool isTV;
+  final bool isLatest;
+  const Popular({super.key, this.isTV = false, this.isLatest = false});
 
   @override
-  State<HomeMovie> createState() => _HomeMovieState();
+  State<Popular> createState() => _PopularState();
 }
 
-class _HomeMovieState extends State<HomeMovie> {
+class _PopularState extends State<Popular> {
   late Service server;
-  BehaviorSubject<List<MovieItem>> moviesSubj = BehaviorSubject.seeded([]);
+  BehaviorSubject<List<ArtWork>> moviesSubj = BehaviorSubject.seeded([]);
   ScrollController _ctrl = ScrollController();
   int page = 1;
 
@@ -37,16 +39,40 @@ class _HomeMovieState extends State<HomeMovie> {
 
   fetchPage() {
     debugPrint("loading next page :$page");
-    server.getPopularMovies(page).then((value) {
-      if (value.isSuccessful) {
-        if (value.body!.page == page) {
-          setState(() {
-            page++;
-          });
-          moviesSubj.value.addAll(value.body?.results ?? []);
+    if (widget.isLatest) {
+      server.getMovieLatest(page).then((value) {
+        if (value.isSuccessful) {
+          if (value.body!.page == page) {
+            setState(() {
+              page++;
+            });
+            moviesSubj.value.addAll(value.body?.results ?? []);
+          }
         }
-      }
-    });
+      });
+    } else if (widget.isTV) {
+      server.getTVShowPopulars(page).then((value) {
+        if (value.isSuccessful) {
+          if (value.body!.page == page) {
+            setState(() {
+              page++;
+            });
+            moviesSubj.value.addAll(value.body?.results ?? []);
+          }
+        }
+      });
+    } else {
+      server.getMoviePopulars(page).then((value) {
+        if (value.isSuccessful) {
+          if (value.body!.page == page) {
+            setState(() {
+              page++;
+            });
+            moviesSubj.value.addAll(value.body?.results ?? []);
+          }
+        }
+      });
+    }
   }
 
   @override
@@ -59,7 +85,7 @@ class _HomeMovieState extends State<HomeMovie> {
   @override
   Widget build(BuildContext context) => StreamBuilder(
       stream: moviesSubj,
-      builder: (context, AsyncSnapshot<List<MovieItem>> snapshot) =>
+      builder: (context, AsyncSnapshot<List<ArtWork>> snapshot) =>
           snapshot.hasData && snapshot.data!.isNotEmpty
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

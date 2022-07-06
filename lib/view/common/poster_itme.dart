@@ -1,13 +1,13 @@
 import 'package:gi_tg/constant.dart';
 import 'package:gi_tg/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:gi_tg/network/model/movieItem.dart';
+import 'package:gi_tg/network/model/index.dart';
 import 'package:gi_tg/view/common/rate_icon.dart';
 import 'package:gi_tg/view/movie/detail.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 class PosterItme extends StatefulWidget {
-  final MovieItem? movie;
+  final ArtWork? movie;
 
   const PosterItme({required this.movie, super.key});
 

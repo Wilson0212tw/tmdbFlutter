@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gi_tg/constant.dart';
-import 'package:gi_tg/network/model/movieItem.dart';
+import 'package:gi_tg/network/model/index.dart';
 import 'package:gi_tg/extension.dart';
 
 class Detail extends StatelessWidget {
-  final MovieItem mItem;
+  final ArtWork mItem;
   const Detail({super.key, required this.mItem});
 
   @override

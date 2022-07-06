@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'package:chopper/chopper.dart';
-import 'package:gi_tg/network/model/moviePopular.dart';
 
 class ModelConverter implements Converter {
+  final Map<Type, Function> typeToJsonFactoryMap;
+
+  ModelConverter(this.typeToJsonFactoryMap);
+
   @override
   Request convertRequest(Request request) {
     final req = applyHeader(
@@ -23,6 +26,18 @@ class ModelConverter implements Converter {
     return request;
   }
 
+  T fromJsonData<T, InnerType>(String jsonData, Function jsonParser) {
+    var jsonMap = json.decode(jsonData);
+
+    if (jsonMap is List) {
+      return jsonMap
+          .map((item) => jsonParser(item as Map<String, dynamic>) as InnerType)
+          .toList() as T;
+    }
+
+    return jsonParser(jsonMap);
+  }
+
   Response<BodyType> _decodeJson<BodyType, InnerType>(Response response) {
     var contentType = response.headers[contentTypeKey];
     var body = response.body;
@@ -30,9 +45,11 @@ class ModelConverter implements Converter {
       body = utf8.decode(response.bodyBytes);
     }
     try {
-      var mapData = json.decode(body);
-      var popular = MoviePopular.fromJson(mapData);
-      return response.copyWith<BodyType>(body: popular as BodyType);
+      // var mapData = json.decode(body);
+      // var popular = PopularResult.fromJson(mapData);
+      return response.copyWith<BodyType>(
+          body: fromJsonData<BodyType, InnerType>(
+              response.body, typeToJsonFactoryMap[InnerType]!));
     } catch (e) {
       chopperLogger.warning(e);
       return response.copyWith<BodyType>(body: body);
