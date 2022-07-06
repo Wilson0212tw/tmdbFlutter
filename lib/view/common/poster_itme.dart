@@ -71,7 +71,7 @@ class _PosterItmeState extends State<PosterItme> {
                       borderRadius: BorderRadius.circular(10.0),
                       child: Image.network(
                         widget.movie!.posterPath!
-                            .getPosterURL(PosterImageURL.w500),
+                            .getPosterURL(PosterImageURL.w780),
                         fit: BoxFit.fill,
                       ),
                     )),

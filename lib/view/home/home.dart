@@ -81,8 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
               label: 'TvShow',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.movie_filter),
-              label: 'Movie Latest',
+              icon: Icon(Icons.trending_up),
+              label: 'Trending',
             ),
           ],
           currentIndex: _selectedIndex,

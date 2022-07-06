@@ -18,27 +18,43 @@ class _$Service extends Service {
 
   @override
   Future<Response<PopularResultM>> getMoviePopulars(
-      [int page = 1, String region = "ZH"]) {
+      [int page = 1, String region = "TW", String language = "zh-TW"]) {
     final $url = 'movie/popular';
-    final $params = <String, dynamic>{'page': page, 'region': region};
+    final $params = <String, dynamic>{
+      'page': page,
+      'region': region,
+      'language': language
+    };
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<PopularResultM, PopularResultM>($request);
   }
 
   @override
   Future<Response<PopularResultT>> getTVShowPopulars(
-      [int page = 1, String region = "ZH"]) {
+      [int page = 1, String region = "TW", String language = "zh-TW"]) {
     final $url = 'tv/popular';
-    final $params = <String, dynamic>{'page': page, 'region': region};
+    final $params = <String, dynamic>{
+      'page': page,
+      'region': region,
+      'language': language
+    };
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<PopularResultT, PopularResultT>($request);
   }
 
   @override
   Future<Response<PopularResultM>> getMovieLatest(
-      [int page = 1, String region = "ZH"]) {
-    final $url = 'movie/now_playing';
-    final $params = <String, dynamic>{'page': page, 'region': region};
+      [int page = 1,
+      String region = "TW",
+      String language = "zh-TW",
+      String mediaType = 'all',
+      String timeWindow = 'day']) {
+    final $url = '/trending/${mediaType}/${timeWindow}';
+    final $params = <String, dynamic>{
+      'page': page,
+      'region': region,
+      'language': language
+    };
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<PopularResultM, PopularResultM>($request);
   }

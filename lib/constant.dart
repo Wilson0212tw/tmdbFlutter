@@ -44,7 +44,7 @@ enum PosterImageURL {
   final String size;
   const PosterImageURL(this.size);
 
-  get partialUrl => imageBaseUrl + size + '/';
+  get partialUrl => imageBaseUrl + size;
 }
 
 

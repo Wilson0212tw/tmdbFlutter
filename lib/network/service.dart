@@ -10,15 +10,23 @@ part 'service.chopper.dart';
 abstract class Service extends ChopperService {
   @Get(path: 'movie/popular')
   Future<Response<PopularResultM>> getMoviePopulars(
-      [@Query() int page = 1, @Query() String region = "ZH"]);
+      [@Query() int page = 1,
+      @Query() String region = "TW",
+      @Query() String language = "zh-TW"]);
 
   @Get(path: 'tv/popular')
   Future<Response<PopularResultT>> getTVShowPopulars(
-      [@Query() int page = 1, @Query() String region = "ZH"]);
+      [@Query() int page = 1,
+      @Query() String region = "TW",
+      @Query() String language = "zh-TW"]);
 
-  @Get(path: 'movie/now_playing')
+  @Get(path: '/trending/{mediaType}/{timeWindow}')
   Future<Response<PopularResultM>> getMovieLatest(
-      [@Query() int page = 1, @Query() String region = "ZH"]);
+      [@Query() int page = 1,
+      @Query() String region = "TW",
+      @Query() String language = "zh-TW",
+      @Path() String mediaType = 'all',
+      @Path() String timeWindow = 'day']);
 
   static Service create() {
     final client = ChopperClient(

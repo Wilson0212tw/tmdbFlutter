@@ -12,7 +12,7 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
-        title: Text(mItem.title!),
+        title: Text(mItem.title ?? ""),
       ),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
