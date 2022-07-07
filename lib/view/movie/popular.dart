@@ -89,7 +89,7 @@ class _PopularState extends State<Popular> {
           snapshot.hasData && snapshot.data!.isNotEmpty
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3),
+                      childAspectRatio: 0.7, crossAxisCount: 3),
                   controller: _ctrl,
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,

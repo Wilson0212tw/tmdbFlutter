@@ -54,8 +54,9 @@ class _PosterItmeState extends State<PosterItme> {
   @override
   Widget build(BuildContext context) => Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5),
           child: Stack(
+            fit: StackFit.expand,
             children: [
               InkWell(
                 onTap: () {
@@ -64,15 +65,18 @@ class _PosterItmeState extends State<PosterItme> {
                       MaterialPageRoute(
                           builder: (ctc) => Detail(mItem: widget.movie!)));
                 },
-                child: Padding(
+                child: Container(
+                    height: 700,
                     padding:
                         const EdgeInsets.only(bottom: 11, left: 5, right: 5),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Image.network(
-                        widget.movie!.posterPath!
-                            .getPosterURL(PosterImageURL.w780),
-                        fit: BoxFit.fill,
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.network(
+                          widget.movie!.posterPath!
+                              .getPosterURL(PosterImageURL.w780),
+                        ),
                       ),
                     )),
               ),
