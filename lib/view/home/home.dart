@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gi_tg/localStorage/sharePreference.dart';
 import 'package:gi_tg/network/service.dart';
+import 'package:gi_tg/view/login.dart';
 import 'package:gi_tg/view/movie/popular.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -25,10 +26,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void setLogin() async {
-    await SharePreference.setLogin(!isLogin);
-    setState(() {
-      isLogin = !isLogin;
-    });
+    final res = await Navigator.push<bool?>(
+        context, MaterialPageRoute(builder: (ctc) => const Login()));
+    print("--$res");
+    if (res != null) {
+      setState(() {
+        isLogin = res;
+      });
+    }
   }
 
   void _onItemTapped(int index) {
@@ -48,18 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          actions: [
-            TextButton.icon(
-                onPressed: setLogin,
-                icon: Icon(
-                  (isLogin ? Icons.logout_sharp : Icons.login_sharp),
-                  color: Colors.black,
-                ),
-                label: Text(
-                  isLogin ? "out        |" : "In        |",
-                  style: const TextStyle(color: Colors.black),
-                ))
-          ],
         ),
         body: IndexedStack(index: _selectedIndex, children: const [
           Popular(),
@@ -89,5 +82,20 @@ class _MyHomePageState extends State<MyHomePage> {
           selectedItemColor: Colors.amber[800],
           onTap: _onItemTapped,
         ),
+        floatingActionButton: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.blueAccent,
+            ),
+            child: TextButton.icon(
+                onPressed: setLogin,
+                icon: Icon(
+                  (isLogin ? Icons.logout_sharp : Icons.login_sharp),
+                  color: Colors.black,
+                ),
+                label: Text(
+                  isLogin ? "out" : "In",
+                  style: const TextStyle(color: Colors.black),
+                ))),
       );
 }
