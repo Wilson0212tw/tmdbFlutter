@@ -6,11 +6,7 @@ enum Pages {
   final String key;
 
   const Pages(this.key);
-}  
-
-
-
-
+}
 
 // class PageConfiguration {
 //   final String key;

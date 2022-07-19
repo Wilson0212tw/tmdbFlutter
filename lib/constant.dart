@@ -47,7 +47,6 @@ enum PosterImageURL {
   get partialUrl => imageBaseUrl + size;
 }
 
-
 // images":{
 // "base_url": "http://image.tmdb.org/t/p/",
 // "secure_base_url": "https://image.tmdb.org/t/p/",

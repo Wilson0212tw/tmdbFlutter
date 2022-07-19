@@ -44,7 +44,6 @@ class HomeItem extends StatelessWidget {
       );
 }
 
-
 // {"adult":false,
 // "backdrop_path":"/7ucaMpXAmlIM24qZZ8uI9hCY0hm.jpg",
 // "genre_ids":[14,12,28],

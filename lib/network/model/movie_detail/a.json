@@ -1,0 +1,79 @@
+{
+    "adult": false,
+    "backdrop_path": "/wo3l9p0S7pcvwlzlndtKgq0peRJ.jpg",
+    "belongs_to_collection": {
+        "id": 328,
+        "name": "侏羅紀公園（系列）",
+        "poster_path": "/qIm2nHXLpBBdMxi8dvfrnDkBUDh.jpg",
+        "backdrop_path": "/njFixYzIxX8jsn6KMSEtAzi4avi.jpg"
+    },
+    "budget": 165000000,
+    "genres": [
+        {
+            "id": 12,
+            "name": "冒险"
+        },
+        {
+            "id": 28,
+            "name": "动作"
+        },
+        {
+            "id": 878,
+            "name": "科幻"
+        }
+    ],
+    "homepage": "http://www.jurassicworld.tw/",
+    "id": 507086,
+    "imdb_id": "tt8041270",
+    "original_language": "en",
+    "original_title": "Jurassic World Dominion",
+    "overview": "故事發生在努布拉島完全毀滅的四年之後。恐龍現在和全世界的人類共同生存，同時也在獵捕食物。這個微妙的平衡即將重新塑造未來，並且即將決定人類從此以後，是否能夠與史上最可怕的生物共同生存，同時卻仍然保持地球頂級掠食者的地位。",
+    "popularity": 2579.769,
+    "poster_path": "/mC9SZcD4lNqXYZVKrB3DPvDBv3k.jpg",
+    "production_companies": [
+        {
+            "id": 33,
+            "logo_path": "/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
+            "name": "Universal Pictures",
+            "origin_country": "US"
+        },
+        {
+            "id": 56,
+            "logo_path": "/cEaxANEisCqeEoRvODv2dO1I0iI.png",
+            "name": "Amblin Entertainment",
+            "origin_country": "US"
+        }
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "US",
+            "name": "United States of America"
+        }
+    ],
+    "release_date": "2022-06-01",
+    "revenue": 831300000,
+    "runtime": 147,
+    "spoken_languages": [
+        {
+            "english_name": "English",
+            "iso_639_1": "en",
+            "name": "English"
+        },
+        {
+            "english_name": "French",
+            "iso_639_1": "fr",
+            "name": "Français"
+        },
+        {
+            "english_name": "Maltese",
+            "iso_639_1": "mt",
+            "name": "Malti"
+        }
+    ],
+    "status": "Released",
+    "tagline": "侏羅紀系列史詩最終章",
+    "title": "侏羅紀世界：統霸天下",
+    "video": false,
+    "vote_average": 6.6,
+    "vote_count": 986
+}
