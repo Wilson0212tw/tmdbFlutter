@@ -5,8 +5,11 @@ import 'package:gi_tg/constant.dart';
 import 'package:gi_tg/localStorage/sharePreference.dart';
 import 'package:gi_tg/network/model/index.dart';
 import 'package:gi_tg/extension.dart';
+import 'package:gi_tg/view/epage.dart';
 
 class Login extends StatefulWidget {
+  static EPage getPage() => EPage((ctx) => const Login());
+
   const Login({super.key});
 
   @override

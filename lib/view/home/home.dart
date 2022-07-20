@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gi_tg/localStorage/sharePreference.dart';
 import 'package:gi_tg/network/service.dart';
+import 'package:gi_tg/view/epage.dart';
 import 'package:gi_tg/view/login.dart';
 import 'package:gi_tg/view/movie/popular.dart';
 
 class MyHomePage extends StatefulWidget {
+  static EPage getPage(String title) =>
+      EPage((ctx) => MyHomePage(title: title));
+
   const MyHomePage({super.key, required this.title});
 
   final String title;

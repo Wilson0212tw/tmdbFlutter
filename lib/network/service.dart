@@ -33,8 +33,8 @@ abstract class Service extends ChopperService {
       baseUrl: baseUrl,
       interceptors: [CustomHeadersInterceptor(), HttpLoggingInterceptor()],
       converter: ModelConverter({
-        PopularResultM: (json) => PopularResultM.fromJson(json),
-        PopularResultT: (json) => PopularResultT.fromJson(json)
+        PopularResultM: PopularResultM.fromJson,
+        PopularResultT: PopularResultT.fromJson
       }),
       errorConverter: const JsonConverter(),
       services: [
