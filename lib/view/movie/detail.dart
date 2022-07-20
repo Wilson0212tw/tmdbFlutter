@@ -4,8 +4,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:gi_tg/constant.dart';
 import 'package:gi_tg/network/model/index.dart';
 import 'package:gi_tg/extension.dart';
+import 'package:gi_tg/view/ePage.dart';
 
 class Detail extends StatelessWidget {
+  static EPage getPage(ArtWork mItem) => EPage((ctx) => Detail(mItem: mItem));
   final ArtWork mItem;
   const Detail({super.key, required this.mItem});
 

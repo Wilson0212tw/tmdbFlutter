@@ -13,6 +13,10 @@ class NavigationCubit extends Cubit<NavigationStack> {
     emit(state.push(config));
   }
 
+  void pushPage(PageConfig config) {
+    emit(state.push(config));
+  }
+
   void clearAndPush(String path, [Map<String, dynamic>? args]) {
     PageConfig config = PageConfig(location: path, args: args);
     emit(state.clearAndPush(config));

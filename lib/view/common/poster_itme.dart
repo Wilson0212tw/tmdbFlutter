@@ -1,7 +1,11 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gi_tg/constant.dart';
 import 'package:gi_tg/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:gi_tg/network/model/index.dart';
+import 'package:gi_tg/router/navigationCubit.dart';
+import 'package:gi_tg/router/navigationStack.dart';
+import 'package:gi_tg/router/pageConfig.dart';
 import 'package:gi_tg/view/common/rate_icon.dart';
 import 'package:gi_tg/view/movie/detail.dart';
 import 'package:palette_generator/palette_generator.dart';
@@ -60,10 +64,12 @@ class _PosterItmeState extends State<PosterItme> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push<void>(
-                      context,
-                      MaterialPageRoute(
-                          builder: (ctc) => Detail(mItem: widget.movie!)));
+                  // Navigator.push<void>(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (ctc) => Detail(mItem: widget.movie!)));
+                  BlocProvider.of<NavigationCubit>(context)
+                      .pushPage(PageConfig.detail(widget.movie!));
                 },
                 child: Container(
                     height: 700,

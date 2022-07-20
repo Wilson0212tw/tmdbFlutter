@@ -1,5 +1,5 @@
 import 'package:gi_tg/router/pageConfig.dart';
-import 'package:gi_tg/view/epage.dart';
+import 'package:gi_tg/view/ePage.dart';
 
 class NavigationStack {
   final List<PageConfig> _stack;

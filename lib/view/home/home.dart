@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gi_tg/localStorage/sharePreference.dart';
 import 'package:gi_tg/network/service.dart';
-import 'package:gi_tg/view/epage.dart';
+import 'package:gi_tg/router/navigationCubit.dart';
+import 'package:gi_tg/router/pageConfig.dart';
+import 'package:gi_tg/view/ePage.dart';
 import 'package:gi_tg/view/login.dart';
 import 'package:gi_tg/view/movie/popular.dart';
 
@@ -57,6 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  BlocProvider.of<NavigationCubit>(context)
+                      .pushPage(PageConfig.setting());
+                },
+                icon: const Icon(Icons.settings))
+          ],
         ),
         body: IndexedStack(index: _selectedIndex, children: const [
           Popular(),
@@ -92,7 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.blueAccent,
             ),
             child: TextButton.icon(
-                onPressed: setLogin,
+                onPressed: () {
+                  BlocProvider.of<NavigationCubit>(context)
+                      .pushPage(PageConfig.login());
+                  // setLogin();
+                },
                 icon: Icon(
                   (isLogin ? Icons.logout_sharp : Icons.login_sharp),
                   color: Colors.black,
