@@ -21,7 +21,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late Service server;
   bool isLogin = false;
   int _selectedIndex = 0;
 
@@ -51,7 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    server = Service.create();
     getLogin();
     super.initState();
   }

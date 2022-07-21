@@ -18,14 +18,12 @@ class Popular extends StatefulWidget {
 }
 
 class _PopularState extends State<Popular> {
-  late Service server;
   BehaviorSubject<List<ArtWork>> moviesSubj = BehaviorSubject.seeded([]);
   ScrollController _ctrl = ScrollController();
   int page = 1;
 
   @override
   void initState() {
-    server = Service.create();
     fetchPage();
 
     _ctrl.addListener(() {
@@ -40,36 +38,30 @@ class _PopularState extends State<Popular> {
   fetchPage() {
     debugPrint("loading next page :$page");
     if (widget.isLatest) {
-      server.getMovieLatest(page).then((value) {
-        if (value.isSuccessful) {
-          if (value.body!.page == page) {
-            setState(() {
-              page++;
-            });
-            moviesSubj.value.addAll(value.body?.results ?? []);
-          }
+      client.getMovieLatest(page).then((value) {
+        if (value.page == page) {
+          setState(() {
+            page++;
+          });
+          moviesSubj.value.addAll(value.results ?? []);
         }
       });
     } else if (widget.isTV) {
-      server.getTVShowPopulars(page).then((value) {
-        if (value.isSuccessful) {
-          if (value.body!.page == page) {
-            setState(() {
-              page++;
-            });
-            moviesSubj.value.addAll(value.body?.results ?? []);
-          }
+      client.getTVShowPopulars(page).then((value) {
+        if (value.page == page) {
+          setState(() {
+            page++;
+          });
+          moviesSubj.value.addAll(value.results ?? []);
         }
       });
     } else {
-      server.getMoviePopulars(page).then((value) {
-        if (value.isSuccessful) {
-          if (value.body!.page == page) {
-            setState(() {
-              page++;
-            });
-            moviesSubj.value.addAll(value.body?.results ?? []);
-          }
+      client.getMoviePopulars(page).then((value) {
+        if (value.page == page) {
+          setState(() {
+            page++;
+          });
+          moviesSubj.value.addAll(value.results ?? []);
         }
       });
     }

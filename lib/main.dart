@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gi_tg/localStorage/sharePreference.dart';
@@ -11,21 +10,15 @@ import 'package:gi_tg/router/pageConfig.dart';
 import 'package:gi_tg/view/home/home.dart';
 import 'package:gi_tg/view/movie/popular.dart';
 import 'package:gi_tg/view/setting/cubit/setting_cubit.dart';
-import 'package:logging/logging.dart';
+import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
+final logger = Logger();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  _setupLogging();
+
   final isLogin = await SharePreference.isLogin();
   runApp(MyApp(isLogin: isLogin));
-}
-
-void _setupLogging() {
-  Logger.root.level = Level.FINE;
-  Logger.root.onRecord.listen((rec) {
-    log('${rec.level.name}: ${rec.time}: ${rec.message}');
-  });
 }
 
 class MyApp extends StatefulWidget {
