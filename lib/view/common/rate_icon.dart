@@ -16,14 +16,7 @@ class RateIcon extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Container(
-      width: 30,
-      height: 30,
-      padding: const EdgeInsets.all(4),
-      decoration: const BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: CircularPercentIndicator(
+  Widget build(BuildContext context) => CircularPercentIndicator(
         radius: 15.0,
         animation: true,
         animationDuration: 1200,
@@ -37,5 +30,5 @@ class RateIcon extends StatelessWidget {
         circularStrokeCap: CircularStrokeCap.butt,
         backgroundColor: Colors.grey,
         progressColor: rateColor,
-      ));
+      );
 }
