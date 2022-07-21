@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gi_tg/constant.dart';
 import 'package:gi_tg/extension.dart';
@@ -79,10 +80,13 @@ class _PosterItmeState extends State<PosterItme> {
                       fit: BoxFit.contain,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
-                        child: Image.network(
-                          widget.movie!.posterPath!
+                        child: CachedNetworkImage(
+                          imageUrl: widget.movie!.posterPath!
                               .getPosterURL(PosterImageURL.w780),
-                          errorBuilder: (context, error, stackTrace) =>
+                          placeholder: (context, url) => const Padding(
+                              padding: EdgeInsets.all(100),
+                              child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
                               const Icon(Icons.error),
                         ),
                       ),

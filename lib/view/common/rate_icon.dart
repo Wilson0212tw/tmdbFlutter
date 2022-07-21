@@ -17,6 +17,8 @@ class RateIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
+      width: 30,
+      height: 30,
       padding: const EdgeInsets.all(4),
       decoration: const BoxDecoration(
           color: Colors.black,

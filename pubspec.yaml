@@ -24,6 +24,7 @@ dependencies:
   loading_indicator: ^3.1.0
   shared_preferences: ^2.0.15
   flutter_bloc: ^8.0.1
+  cached_network_image: ^3.2.1
   
 dev_dependencies:
   flutter_test:
