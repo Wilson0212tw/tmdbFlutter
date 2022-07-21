@@ -82,6 +82,8 @@ class _PosterItmeState extends State<PosterItme> {
                         child: Image.network(
                           widget.movie!.posterPath!
                               .getPosterURL(PosterImageURL.w780),
+                          errorBuilder: (context, error, stackTrace) =>
+                              const Icon(Icons.error),
                         ),
                       ),
                     )),

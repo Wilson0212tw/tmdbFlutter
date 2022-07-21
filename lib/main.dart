@@ -15,6 +15,7 @@ import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   _setupLogging();
   final isLogin = await SharePreference.isLogin();
   runApp(MyApp(isLogin: isLogin));
