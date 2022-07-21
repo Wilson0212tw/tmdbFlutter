@@ -28,6 +28,8 @@ enum Themes {
 
 Map<String, ThemeData> themeDataMap = {
   "black": ThemeData(
+      backgroundColor: const Color.fromARGB(255, 182, 147, 242),
+      bottomAppBarColor: Colors.deepPurple,
       primarySwatch: Colors.deepPurple,
       textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
@@ -35,6 +37,8 @@ Map<String, ThemeData> themeDataMap = {
         foregroundColor: Colors.purpleAccent,
       ))),
   "white": ThemeData(
+      backgroundColor: const Color.fromARGB(255, 151, 202, 244),
+      bottomAppBarColor: Colors.blue,
       primarySwatch: Colors.blue,
       textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
@@ -42,6 +46,8 @@ Map<String, ThemeData> themeDataMap = {
         foregroundColor: Colors.blueGrey,
       ))),
   "whocare": ThemeData(
+      backgroundColor: const Color.fromARGB(255, 246, 237, 163),
+      bottomAppBarColor: Colors.yellow,
       primarySwatch: Colors.yellow,
       textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(

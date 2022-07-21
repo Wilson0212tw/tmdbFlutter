@@ -16,6 +16,7 @@ class Setting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(),
       body: Center(
           child: Column(

@@ -13,6 +13,7 @@ class Detail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: Text(mItem.title ?? ""),
       ),
