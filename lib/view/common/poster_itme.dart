@@ -92,15 +92,18 @@ class _PosterItmeState extends State<PosterItme> {
                       ),
                     )),
               ),
-              // Positioned(
-              //     bottom: 0, child: RateIcon(widget.movie!.voteAverage!)),
               Positioned(
-                  bottom: 0,
+                  bottom: 0, child: RateIcon(widget.movie!.voteAverage!)),
+              Positioned(
+                  bottom: 10,
+                  right: 10,
                   child: Container(
-                      width: 30,
-                      height: 100,
-                      color: Colors.white70,
-                      child: Text(widget.movie?.title ?? "")))
+                      color: Colors.white54,
+                      child: Center(
+                          child: Text(
+                        widget.movie?.title ?? "",
+                        style: TextStyle(fontSize: 19),
+                      ))))
               // Expanded(
               //     child: Column(
               //   children: [

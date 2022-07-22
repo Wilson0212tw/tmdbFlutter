@@ -28,6 +28,7 @@ enum Themes {
 
 Map<String, ThemeData> themeDataMap = {
   "black": ThemeData(
+      canvasColor: const Color.fromARGB(255, 87, 11, 220),
       backgroundColor: const Color.fromARGB(255, 182, 147, 242),
       bottomAppBarColor: Colors.deepPurple,
       primarySwatch: Colors.deepPurple,
@@ -37,6 +38,7 @@ Map<String, ThemeData> themeDataMap = {
         foregroundColor: Colors.purpleAccent,
       ))),
   "white": ThemeData(
+      canvasColor: const Color.fromARGB(255, 2, 68, 122),
       backgroundColor: const Color.fromARGB(255, 151, 202, 244),
       bottomAppBarColor: Colors.blue,
       primarySwatch: Colors.blue,
@@ -46,6 +48,7 @@ Map<String, ThemeData> themeDataMap = {
         foregroundColor: Colors.blueGrey,
       ))),
   "whocare": ThemeData(
+      canvasColor: const Color.fromARGB(255, 183, 69, 20),
       backgroundColor: const Color.fromARGB(255, 246, 237, 163),
       bottomAppBarColor: Colors.yellow,
       primarySwatch: Colors.yellow,
